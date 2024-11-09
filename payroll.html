@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAYE Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculator-inputs">
+            <style>
+                .center-align {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    margin: 0 auto;
+                }
+
+                .center-align input {
+                    margin-bottom: 10px;
+                }
+
+                .center-align label {
+                    margin-bottom: 5px;
+                }
+            </style>
+            <h2 class="center-align">Pay-Roll Calc'</h2>
+
+            <label for="basicAmount" class="center-align">Basic Pay</label>
+            <input class="center-align" type="text" id="basicAmount" placeholder="Enter Basic Amount"
+                oninput="formatInput(this)" />
+
+            <label for="allowances" class="center-align">Allowances</label>
+            <input class="center-align" type="text" id="allowances" placeholder="Enter Allowances"
+                oninput="formatInput(this)" />
+
+            <label for="nonCashBenefits" class="center-align">Non-Cash Benefits</label>
+            <input class="center-align" type="text" id="nonCashBenefits" placeholder="Enter Non-Cash Benefits"
+                oninput="formatInput(this)" />
+
+            <label class="center-align">
+                <input class="center-align" type="checkbox" id="pensionCheckbox" onclick="togglePensionFields()" />
+                <p>Pension Contributions</p>
+            </label>
+
+            <div id="pensionFields" class="center-align" style="display: none;">
+                <!--<label for="employeePension">Employee Pension Contribution (%)</label>-->
+                <input class="center-align" type="number" id="employeePension" placeholder="Employee Contribution %" />
+
+                <!--<label for="employerPension">Employer Pension Contribution (%)</label>-->
+                <input class="center-align" type="number" id="employerPension" placeholder="Employer Contribution %" />
+            </div>
+
+            <label class="center-align">
+                <input class="center-align" type="checkbox" id="insuranceCheckbox" onclick="toggleInsuranceFields()" />
+                <p>Insurance</p>
+            </label>
+
+            <div id="insuranceFields" class="center-align" style="display: none;">
+                <!--<label for="eduInsurance">Edu' Insurance</label>-->
+                <input class="center-align" type="text" id="eduInsurance" placeholder="Enter Education Insurance"
+                    oninput="formatInput(this)" />
+
+                <!--<label for="lifeInsurance">Life Insurance</label>-->
+                <input class="center-align" type="text" id="lifeInsurance" placeholder="Enter Life Insurance"
+                    oninput="formatInput(this)" />
+            </div>
+
+            <button onclick="calculatePAYE()" class="center-align">CalCulate</button>
+        </div>
+
+        <div class="calculator-results">
+            <!--<h2>Results</h2>-->
+            <p>Basic Pay: <span id="displayBasicAmount">0</span></p>
+            <p>Allowances: <span id="displayAllowances">0</span></p>
+            <p>Non Cash Benefit(s): <span id="displayNonCashBenefits">0</span></p>
+            <hr class="separator">
+            <p>Gross Pay: <span id="grossPay">0</span></p>
+            <p>Allowable Deductions: <span id="allowableDeductions">0</span></p>
+            <p>Taxable Pay: <span id="taxablePay">0</span></p>
+            <hr class="separator">
+            <p>Income Tax: <span id="incomeTax">0</span></p>
+            <p>Personal Relief: <span id="personalRelief">2400</span></p>
+            <p>Insurance Relief: <span id="insuranceRelief">0</span></p>
+            <p>Housing Levy Relief: <span id="housingLevyRelief">0</span></p>
+            <hr class="separator">
+            <div style="background-color: #f5f5f5; padding: 5px;">
+                <p><strong>PAYE:</strong> <strong><span id="PAYE">0</span></strong></p>
+            </div>
+            <p>NSSF: <span id="nssf">0</span></p>
+            <p>SHIF: <span id="shif">0</span></p>
+            <p>AHL: <span id="housingLevy">0</span></p>
+            <p>PENSION: <span id="pension">0</span></p>
+            <p>EDU' INSURANCE: <span id="displayeduInsurance">0</span></p>
+            <p>LIFE INSURANCE: <span id="displaylifeInsurance">0</span></p>
+            <hr class="separator">
+            <p>T. DEDUCTIONS: <span id="totalDeductions">0</span></p>
+            <hr class="separator">
+            <div style="background-color: #f5f5f5; padding: 5px;">
+                <p><strong>NET PAY:</strong> <strong><span id="netPay">0</span></strong></p>
+            </div>
+            <hr class="separator">
+
+            <br>
+            <p><strong>EMPLOYER CONTRIBUTIONS</strong></p>
+            <hr class="separator">
+            <p>nssf Employer: <span id="nssfEmployer">0</span></p>
+            <p>ahl Employer: <span id="ahlEmployer">0</span></p>
+            <p>pension Employer: <span id="pensionEmployer">0</span></p>
+            <p>nita Employer: <span id="nita">50</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fff;
+    line-height: 1.2;
+}
+
+.container {
+    display: flex;
+    width: 40%;
+    /* Reduced width */
+    max-width: 600px;
+    /* Reduced max-width */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.calculator-inputs {
+    padding: 8px;
+    /* Reduced padding */
+    width: 28%;
+    /* Adjusted width */
+    background-image: linear-gradient(to right, #dfcfc9, #cff4fa);
+    margin-right: 3px;
+    /* Reduced margin */
+}
+
+.calculator-results {
+    padding: 8px;
+    /* Reduced padding */
+    width: 72%;
+    /* Adjusted width */
+    background-image: linear-gradient(to right, #ff7f50, #e6a8d7);
+}
+
+.calculator-inputs label {
+    display: block;
+    margin: 4px 0 2px;
+    /* Reduced margin */
+    font-size: 0.7rem;
+    /* Reduced font-size */
+    line-height: 1.2;
+}
+
+.calculator-inputs input {
+    width: 100%;
+    padding: 4px;
+    /* Reduced padding */
+    margin-bottom: 8px;
+    /* Reduced margin */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    /* Reduced font-size */
+    line-height: 1.2;
+}
+
+.calculator-inputs button {
+    width: 100%;
+    padding: 5px;
+    /* Reduced padding */
+    background-color: #e67bcb;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    /* Reduced font-size */
+    line-height: 1.2;
+}
+
+.calculator-inputs button:hover {
+    background-color: #d96fb3;
+}
+
+.calculator-results h2,
+.calculator-inputs h2 {
+    color: #333;
+    font-size: 1rem;
+    /* Slightly reduced font-size */
+    line-height: 1.2;
+}
+
+.calculator-results p {
+    font-size: 0.75rem;
+    /* Reduced font-size */
+    margin: 4px 0;
+    /* Reduced margin */
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.2;
+}
+
+.calculator-results span {
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+#pensionCheckbox,
+#insuranceCheckbox {
+    display: inline-flex;
+    align-items: flex-start;
+    font-size: 0.7rem;
+    /* Reduced font-size */
+    line-height: 1.2;
+}
+
+.separator {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ddd;
+    /* Adjust thickness and color */
+    margin: 10px auto;
+    /* Center it within the container */
+}
+
+.label-bold {
+    font-weight: bold;
+    font-size: xx-large;
+}
