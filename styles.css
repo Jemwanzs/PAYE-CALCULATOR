@@ -105,8 +105,14 @@ body {
 
     .calculator-results {
         width: 100%;
-        padding: 6px;
         font-size: 0.7rem;
+        box-sizing: border-box;
+        /* Ensures padding doesn't overflow */
+        padding: 15px;
+        overflow-y: auto;
+        /* Enables vertical scrolling if content exceeds container height */
+        max-height: 80vh;
+        /* Sets max height to prevent overflow */
     }
 
     .calculator-inputs button,
