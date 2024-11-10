@@ -90,6 +90,7 @@ body {
 /* Responsive Styles for Mobile */
 @media (max-width: 768px) {
     .container {
+        margin-top: auto;
         flex-direction: column;
         width: 90%;
     }
