@@ -24,7 +24,7 @@ body {
 
 /* Inputs Section */
 .calculator-inputs {
-    padding: 8px;
+    padding: 20px;
     width: 30%;
     background-image: linear-gradient(to right, #dfcfc9, #cff4fa);
     margin-right: 5px;
@@ -95,7 +95,14 @@ body {
         width: 90%;
     }
 
-    .calculator-inputs,
+    .calculator-inputs {
+        width: 100%;
+        padding: 20px;
+        font-size: 0.7rem;
+        box-sizing: border-box;
+        /* Ensures padding doesn't affect overall width */
+    }
+
     .calculator-results {
         width: 100%;
         padding: 6px;
