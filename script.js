@@ -43,9 +43,9 @@ function calculatePAYE() {
 
     // Calculations
     const grossPay = basicAmount + allowances + nonCashBenefits; // Gross pay includes non-cash benefits
-    const nssf = Math.min(grossPay * 0.06, 2160);
-    const shif = grossPay * 0.0275;
-    const housingLevy = grossPay * 0.015;
+    const nssf = Math.min((basicAmount + allowances) * 0.06, 2160);
+    const shif = (basicAmount + allowances) * 0.0275;
+    const housingLevy = (basicAmount + allowances) * 0.015;
 
     // Pension contributions based on checkbox
     let pension = 0;
@@ -56,7 +56,6 @@ function calculatePAYE() {
     }
 
     // Insurance contributions based on checkbox
-    let insurance = 0;
     let totalInsurance = 0;
     if (insuranceCheckbox.checked) {
         totalInsurance = eduInsurance + lifeInsurance;
