@@ -65,7 +65,8 @@ function calculatePAYE() {
     let taxableNonCashBenefits = nonCashBenefits > 3000 ? nonCashBenefits : 0; // Tax full amount if > 3000
 
     const allowableDeductions = Math.min(nssf + pension, 20000);
-    const taxablePay = basicAmount + allowances + taxableNonCashBenefits - allowableDeductions;
+    const excessPension = Math.max(((pensionEmployer + nssf) - 20000), 0);
+    const taxablePay = basicAmount + allowances + taxableNonCashBenefits - allowableDeductions + excessPension;
     const personalRelief = 2400;
     const nita = 50;
     const nssfEmployer = Math.min(grossPay * 0.06, 2160);
@@ -103,6 +104,7 @@ function calculatePAYE() {
     document.getElementById('displayNonCashBenefits').textContent = nonCashBenefits.toLocaleString();
     document.getElementById('grossPay').textContent = grossPay.toLocaleString();
     document.getElementById('allowableDeductions').textContent = allowableDeductions.toLocaleString();
+    document.getElementById('excessPension').textContent = excessPension.toLocaleString();
     document.getElementById('taxablePay').textContent = taxablePay.toLocaleString();
     document.getElementById('incomeTax').textContent = incomeTax.toLocaleString();
     document.getElementById('personalRelief').textContent = personalRelief.toLocaleString();
