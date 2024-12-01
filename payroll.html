@@ -35,12 +35,16 @@
             <input class="center-align" type="text" id="basicAmount" placeholder="Enter Basic Amount"
                 oninput="formatInput(this)" />
 
-            <label for="allowances" class="center-align">Allowances</label>
-            <input class="center-align" type="text" id="allowances" placeholder="Enter Allowances"
+            <label for="allowances" class="center-align">Cash Allowances</label>
+            <input class="center-align" type="text" id="allowances" placeholder="Enter Cash Benefits"
                 oninput="formatInput(this)" />
 
-            <label for="nonCashBenefits" class="center-align">Non-Cash Benefits</label>
-            <input class="center-align" type="text" id="nonCashBenefits" placeholder="Enter Non-Cash Benefits"
+            <label for="telnonCashBenefits" class="center-align">Bobile/Tel/Internet Benefits</label>
+            <input class="center-align" type="text" id="telnonCashBenefits" placeholder="Enter Mobile Benefits"
+                oninput="formatInput(this)" />
+
+            <label for="mealsnonCashBenefits" class="center-align">Meals Benefit</label>
+            <input class="center-align" type="text" id="mealsnonCashBenefits" placeholder="Enter Meals Benefit"
                 oninput="formatInput(this)" />
 
             <label class="center-align">
@@ -71,19 +75,24 @@
                     oninput="formatInput(this)" />
             </div>
 
-            <button onclick="calculatePAYE()" class="center-align">CalCulate</button>
+            <!--<button onclick="calculatePAYE()" class="center-align">CalCulate</button>-->
         </div>
 
         <div class="calculator-results">
             <!--<h2>Results</h2>-->
             <p>Basic Pay: <span id="displayBasicAmount">0</span></p>
             <p>Allowances: <span id="displayAllowances">0</span></p>
-            <p>Non Cash Benefit(s): <span id="displayNonCashBenefits">0</span></p>
+            <p>Telephone Benefit(s): <span id="displaytelnonCashBenefits">0</span></p>
+            <p>Meals Benefit: <span id="displaymealsnonCashBenefits">0</span></p>
             <hr class="separator">
             <p>Gross Pay: <span id="grossPay">0</span></p>
             <p>Allowable Deductions: <span id="allowableDeductions">0</span></p>
-            <p>Taxable Pension: <span id="excessPension">0</span></p>
-            <p>Taxable Pay: <span id="taxablePay">0</span></p>
+            <p>Taxable Tel benefits (+): <span id="displaytaxabletelnonCashBenefits">0</span></p>
+            <p>Taxable Meals benefits (+): <span id="displaytaxablemealsnonCashBenefits">0</span></p>
+            <p>Taxable Pension (+): <span id="excessPension">0</span></p>
+            <div style="background-color: #f5f5f5; padding: 5px;">
+                <p><strong>Taxable Pay:</strong><strong> <span id="taxablePay">0</span></strong></p>
+            </div>
             <hr class="separator">
             <p>Income Tax: <span id="incomeTax">0</span></p>
             <p>Personal Relief: <span id="personalRelief">2400</span></p>
