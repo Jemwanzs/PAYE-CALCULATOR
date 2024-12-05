@@ -66,8 +66,8 @@ function calculatePAYE() {
         totalInsurance = eduInsurance + lifeInsurance;
     }
 
-    const taxabletelnonCashBenefits = Math.max(telnonCashBenefits - 3000, 0);
-    const taxablemealsnonCashBenefits = Math.max(mealsnonCashBenefits - 4000, 0);
+    const taxabletelnonCashBenefits = telnonCashBenefits <= 3000 ? 0 : telnonCashBenefits; //If telnonCashBenefits is less than or equal to 3000, the taxable amount is 0. -----   Otherwise, the taxable amount is telnonCashBenefits.
+    const taxablemealsnonCashBenefits = mealsnonCashBenefits <= 4000 ? 0 : mealsnonCashBenefits;
     const allowableDeductions = Math.min(nssf + pension, 20000);
     const excessPension = Math.max(((pensionEmployer + nssf) - 20000), 0);
     const taxablePay = (basicAmount + allowances) + taxabletelnonCashBenefits + taxablemealsnonCashBenefits + excessPension - allowableDeductions;
