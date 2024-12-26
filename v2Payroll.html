@@ -9,12 +9,12 @@
     <style>
         /* Back button styling */
         .back-button {
-            position: fixed;
-            top: 20px;
-            /* Adjusted top position */
+            position: absolute;
+            top: 10px;
+            /* Default top position for larger screens */
             left: 50%;
             transform: translateX(-50%);
-            background-color: #3483eb;
+            background-color: #e67bcb;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -32,17 +32,24 @@
         }
 
         .back-button:active {
-            background-color: #1f5aaa;
+            background-color: #e67bcb;
             transform: translateX(-50%) translateY(0);
         }
 
         /* Responsive Design for Small Screens */
         @media (max-width: 600px) {
             .back-button {
-                top: 5px;
-                /* Adjusted top position for small screens */
+                top: 40px;
+                /* Adjust top position on small screens */
                 padding: 8px 15px;
                 font-size: 0.9rem;
+                /* Make the button smaller on small screens */
+            }
+
+            /* Add margin to avoid overlap with the content */
+            .container {
+                padding-top: 75px;
+                /* Push the container content down */
             }
         }
     </style>
