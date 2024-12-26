@@ -10,7 +10,8 @@
         /* Back button styling */
         .back-button {
             position: fixed;
-            top: 50px;
+            top: 20px;
+            /* Adjusted top position */
             left: 50%;
             transform: translateX(-50%);
             background-color: #3483eb;
@@ -21,6 +22,8 @@
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 1000;
+            /* Ensure the button stays on top */
         }
 
         .back-button:hover {
@@ -37,6 +40,7 @@
         @media (max-width: 600px) {
             .back-button {
                 top: 5px;
+                /* Adjusted top position for small screens */
                 padding: 8px 15px;
                 font-size: 0.9rem;
             }
