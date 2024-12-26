@@ -38,6 +38,10 @@
         #versionPicker {
             width: 100%;
             max-width: 300px;
+            text-align: center;
+            /* Centers the text when not open */
+            text-align-last: center;
+            /* Ensures text stays centered when an option is selected */
             padding: 12px;
             font-size: 1rem;
             border: 1px solid #ddd;
@@ -52,6 +56,12 @@
 
         #versionPicker:focus {
             border-color: #e67bcb;
+        }
+
+        /* Optional: Style the options inside the select */
+        #versionPicker option {
+            text-align: center;
+            /* Center text in options */
         }
 
         /* Button Styling */
@@ -98,7 +108,7 @@
     </style>
     <h1>Select a Version</h1>
     <select id="versionPicker">
-        <option value="" selected disabled>Select an option</option>
+        <option value="" selected disabled>Pick Here...</option>
         <option value="v1_PAYE">Version 1 PAYE</option>
         <option value="v2_PAYE">Version 2 PAYE</option>
     </select>
