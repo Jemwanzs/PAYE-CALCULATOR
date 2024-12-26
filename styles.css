@@ -111,7 +111,7 @@ body {
         padding: 15px;
         /*overflow-y: auto;
         Enables vertical scrolling if content exceeds container height */
-        max-height: 80vh;
+        max-height: 200vh;
         /* Sets max height to prevent overflow */
     }
 
