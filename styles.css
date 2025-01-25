@@ -1,0 +1,138 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fff;
+    line-height: 1.2;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    overflow: hidden;
+}
+
+/* Inputs Section */
+.calculator-inputs {
+    padding: 20px;
+    width: 30%;
+    background-image: linear-gradient(to right, #dfcfc9, #cff4fa);
+    margin-right: 5px;
+}
+
+.calculator-inputs label {
+    display: block;
+    margin: 4px 0 2px;
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+.calculator-inputs input {
+    width: 100%;
+    padding: 4px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.calculator-inputs button {
+    width: 100%;
+    padding: 5px;
+    background-color: #e67bcb;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.calculator-inputs button:hover {
+    background-color: #d96fb3;
+}
+
+/* Results Section */
+.calculator-results {
+    padding: 8px;
+    width: 70%;
+    background-image: linear-gradient(to right, #ff7f50, #e6a8d7);
+}
+
+.calculator-results p {
+    font-size: 0.8rem;
+    margin: 4px 0;
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.2;
+}
+
+.calculator-results span {
+    font-weight: bold;
+}
+
+.separator {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+    .container {
+        margin-top: auto;
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .calculator-inputs {
+        width: 100%;
+        padding: 20px;
+        font-size: 0.7rem;
+        box-sizing: border-box;
+        /* Ensures padding doesn't affect overall width */
+    }
+
+    .calculator-results {
+        width: 100%;
+        font-size: 0.7rem;
+        box-sizing: border-box;
+        /* Ensures padding doesn't overflow */
+        padding: 15px;
+        /*overflow-y: auto;
+        Enables vertical scrolling if content exceeds container height */
+        max-height: 250vh;
+        /* Sets max height to prevent overflow */
+    }
+
+    .calculator-inputs button,
+    .calculator-inputs input,
+    .calculator-inputs label,
+    .calculator-results p {
+        font-size: 0.65rem;
+    }
+
+    .calculator-inputs button {
+        padding: 4px;
+    }
+
+    .calculator-inputs label,
+    .calculator-results p {
+        margin: 3px 0;
+    }
+
+    h2 {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}

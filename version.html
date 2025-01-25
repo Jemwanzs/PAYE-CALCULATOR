@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Version Picker</title>
+</head>
+
+<body>
+
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f3f8fd;
+            color: #333;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* Header Styling */
+        h1 {
+            font-size: 1.5rem;
+            color: #7c1262;
+            margin-bottom: 0.5rem;
+            text-shadow: 2.5px 2.5px 2.5px #f08d1c;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #e67bcb;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dropdown Styling */
+        #versionPicker {
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            /* Centers the text when not open */
+            text-align-last: center;
+            /* Ensures text stays centered when an option is selected */
+            padding: 12px;
+            font-size: 0.65rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            background-color: #ffffff;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #versionPicker:focus {
+            border-color: #e67bcb;
+        }
+
+        /* Optional: Style the options inside the select */
+        #versionPicker option {
+            text-align: center;
+            /* Center text in options */
+        }
+
+        /* Button Styling */
+        #proceedBtn {
+            background-color: #e67bcb;
+            color: #fff;
+            width: 125px;
+            max-width: 300px;
+            padding: 12px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #proceedBtn:hover {
+            background-color: #fab54d;
+            transform: translateY(-2px);
+        }
+
+        #proceedBtn:active {
+            background-color: #e67bcb;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            #versionPicker {
+                font-size: 0.5rem;
+                padding: 10px;
+            }
+
+            #proceedBtn {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+    </style>
+    <h1>PAYE</h1>
+    <h2>Select a Version</h2>
+    <select id="versionPicker">
+        <option value="" selected disabled>Pick Here...</option>
+        <option value="v1_PAYE">v1-PAYE {before Dec 27,24}</option>
+        <option value="v2_PAYE">v2-PAYE {Dec 27,24 >>}</option>
+    </select>
+
+    <button id="proceedBtn">Proceed</button>
+
+    <script>
+        document.getElementById("proceedBtn").addEventListener("click", function () {
+            const selectedOption = document.getElementById("versionPicker").value;
+
+            if (selectedOption === "v1_PAYE") {
+                // Redirect to Version 1 payroll interface
+                window.location.replace("payroll.html");
+            } else if (selectedOption === "v2_PAYE") {
+                // Redirect to Version 2 payroll interface
+                window.location.replace("v2payroll.html");
+            } else {
+                alert("Please select a valid option.");
+            }
+        });
+    </script>
+    <script src="protectCode.js"></script>
+</body>
+
+</html>

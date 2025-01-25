@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAYE Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Back button styling */
+        .back-button {
+            position: absolute;
+            top: 2px;
+            /* Default top position for larger screens */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #e67bcb;
+            color: #fff;
+            border: none;
+            padding: 5px 7px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 1000;
+            /* Ensure the button stays on top */
+        }
+
+        .back-button:hover {
+            background-color: #f89f56;
+            transform: translateX(-50%) translateY(-2px);
+        }
+
+        .back-button:active {
+            background-color: #e67bcb;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Responsive Design for Small Screens */
+        @media (max-width: 600px) {
+            .back-button {
+                top: 40px;
+                /* Adjust top position on small screens */
+                padding: 8px 15px;
+                font-size: 0.9rem;
+                /* Make the button smaller on small screens */
+            }
+
+            /* Add margin to avoid overlap with the content */
+            .container {
+                padding-top: 75px;
+                /* Push the container content down */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="back-button" onclick="redirectPickVersion()">Back</button>
+
+        <script>
+            function redirectPickVersion() {
+                window.location.replace("version.html");
+            }
+        </script>
+        <div class="calculator-inputs">
+            <style>
+                .center-align {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    margin: 0 auto;
+                }
+
+                .center-align input {
+                    margin-bottom: 10px;
+                }
+
+                .center-align label {
+                    margin-bottom: 5px;
+                }
+            </style>
+            <h2 class="center-align">Pay-Roll Calc'</h2>
+
+            <label for="basicAmount" class="center-align">Basic Pay</label>
+            <input class="center-align" type="text" id="basicAmount" placeholder="Enter Basic Amount"
+                oninput="formatInput(this)" />
+
+            <label for="allowances" class="center-align">Cash Allowances</label>
+            <input class="center-align" type="text" id="allowances" placeholder="Enter Cash Benefits"
+                oninput="formatInput(this)" />
+
+            <label for="telnonCashBenefits" class="center-align">Bobile/Tel/Internet Benefits</label>
+            <input class="center-align" type="text" id="telnonCashBenefits" placeholder="Enter Mobile Benefits"
+                oninput="formatInput(this)" />
+
+            <label for="mealsnonCashBenefits" class="center-align">Meals Benefit</label>
+            <input class="center-align" type="text" id="mealsnonCashBenefits" placeholder="Enter Meals Benefit"
+                oninput="formatInput(this)" />
+
+            <label class="center-align">
+                <input class="center-align" type="checkbox" id="pensionCheckbox" onclick="togglePensionFields()" />
+                <p>Pension Contributions (%)</p>
+            </label>
+
+            <div id="pensionFields" class="center-align" style="display: none;">
+                <!--<label for="employeePension">Employee Pension Contribution (%)</label>-->
+                <input class="center-align" type="number" id="employeePension" placeholder="Employee ( eg. 5 = 5%)" />
+
+                <!--<label for="employerPension">Employer Pension Contribution (%)</label>-->
+                <input class="center-align" type="number" id="employerPension" placeholder="Employer ( eg. 10 = 10%)" />
+            </div>
+
+            <label class="center-align">
+                <input class="center-align" type="checkbox" id="insuranceCheckbox" onclick="toggleInsuranceFields()" />
+                <p>Insurance</p>
+            </label>
+
+            <div id="insuranceFields" class="center-align" style="display: none;">
+                <!--<label for="eduInsurance">Edu' Insurance</label>-->
+                <input class="center-align" type="text" id="eduInsurance" placeholder="Enter Education Insurance"
+                    oninput="formatInput(this)" />
+
+                <!--<label for="lifeInsurance">Life Insurance</label>-->
+                <input class="center-align" type="text" id="lifeInsurance" placeholder="Enter Life Insurance"
+                    oninput="formatInput(this)" />
+            </div>
+
+            <!--<button onclick="calculatePAYE()" class="center-align">CalCulate</button>-->
+        </div>
+
+        <div class="calculator-results">
+            <!--<h2>Results</h2>-->
+            <p>Basic Pay: <span id="displayBasicAmount">0</span></p>
+            <p>Allowances: <span id="displayAllowances">0</span></p>
+            <p>Telephone Benefit(s): <span id="displaytelnonCashBenefits">0</span></p>
+            <p>Meals Benefit: <span id="displaymealsnonCashBenefits">0</span></p>
+            <hr class="separator">
+            <p>Gross Pay: <span id="grossPay">0</span></p>
+            <p>Allowable Deductions: <span id="allowableDeductions">0</span></p>
+            <p>Taxable Tel benefits (+): <span id="displaytaxabletelnonCashBenefits">0</span></p>
+            <p>Taxable Meals benefits (+): <span id="displaytaxablemealsnonCashBenefits">0</span></p>
+            <p>Taxable Pension (+): <span id="excessPension">0</span></p>
+            <div style="background-color: #f5f5f5; padding: 5px;">
+                <p><strong>Taxable Pay:</strong><strong> <span id="taxablePay">0</span></strong></p>
+            </div>
+            <hr class="separator">
+            <p>Income Tax: <span id="incomeTax">0</span></p>
+            <p>Personal Relief: <span id="personalRelief">2400</span></p>
+            <p>Insurance Relief: <span id="insuranceRelief">0</span></p>
+            <p>Housing Levy Relief: <span id="housingLevyRelief">0</span></p>
+            <hr class="separator">
+            <div style="background-color: #f5f5f5; padding: 5px;">
+                <p><strong>PAYE:</strong> <strong><span id="PAYE">0</span></strong></p>
+            </div>
+            <p>NSSF: <span id="nssf">0</span></p>
+            <p>SHIF: <span id="shif">0</span></p>
+            <p>AHL: <span id="housingLevy">0</span></p>
+            <p>PENSION: <span id="pension">0</span></p>
+            <p>EDU' INSURANCE: <span id="displayeduInsurance">0</span></p>
+            <p>LIFE INSURANCE: <span id="displaylifeInsurance">0</span></p>
+            <hr class="separator">
+            <p>T. DEDUCTIONS: <span id="totalDeductions">0</span></p>
+            <hr class="separator">
+            <div style="background-color: #f5f5f5; padding: 5px;">
+                <p><strong>NET PAY:</strong> <strong><span id="netPay">0</span></strong></p>
+            </div>
+            <hr class="separator">
+
+            <br>
+            <p><strong>EMPLOYER CONTRIBUTIONS</strong></p>
+            <hr class="separator">
+            <p>nssf Employer: <span id="nssfEmployer">0</span></p>
+            <p>ahl Employer: <span id="ahlEmployer">0</span></p>
+            <p>pension Employer: <span id="pensionEmployer">0</span></p>
+            <p>nita Employer: <span id="nita">50</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="protectCode.js"></script>
+</body>
+
+</html>
