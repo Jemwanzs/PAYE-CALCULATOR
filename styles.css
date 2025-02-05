@@ -65,7 +65,7 @@ body {
 .calculator-results {
     padding: 8px;
     width: 70%;
-    background-image: linear-gradient(to right, #10cece, #f885db);
+    background-image: linear-gradient(to right, #020e0e, #f885db);
 }
 
 .calculator-results p {
