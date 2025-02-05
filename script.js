@@ -39,6 +39,7 @@ function calculateIncomeTax(taxablePay) {
 function calculatePAYE() {
     const basicAmount = parseFloat(document.getElementById('basicAmount').value.replace(/,/g, '')) || 0;
     const allowances = parseFloat(document.getElementById('allowances').value.replace(/,/g, '')) || 0;
+    const irrgularallowances = parseFloat(document.getElementById('irregularallowances').value.replace(/,/g, '')) || 0;
     const telnonCashBenefits = parseFloat(document.getElementById('telnonCashBenefits').value.replace(/,/g, '')) || 0;
     const mealsnonCashBenefits = parseFloat(document.getElementById('mealsnonCashBenefits').value.replace(/,/g, '')) || 0;
 
@@ -50,8 +51,8 @@ function calculatePAYE() {
     const eduInsurance = parseFloat(document.getElementById('eduInsurance').value.replace(/,/g, '')) || 0;
     const lifeInsurance = parseFloat(document.getElementById('lifeInsurance').value.replace(/,/g, '')) || 0;
 
-    const grossPay = basicAmount + allowances + telnonCashBenefits + mealsnonCashBenefits;
-    const nssf = Math.min((basicAmount + allowances) * 0.06, 2160);
+    const grossPay = basicAmount + allowances + irrgularallowances + telnonCashBenefits + mealsnonCashBenefits;
+    const nssf = Math.min((basicAmount + allowances + irrgularallowances) * 0.06, 2160);
     const shif = (basicAmount + allowances) * 0.0275;
     const housingLevy = (basicAmount + allowances) * 0.015;
 
@@ -70,7 +71,7 @@ function calculatePAYE() {
     const taxablemealsnonCashBenefits = mealsnonCashBenefits <= 4000 ? 0 : mealsnonCashBenefits;
     const allowableDeductions = Math.min(nssf + pension, 20000);
     const excessPension = Math.max(((pensionEmployer + nssf) - 20000), 0);
-    const taxablePay = (basicAmount + allowances) + taxabletelnonCashBenefits + taxablemealsnonCashBenefits + excessPension - allowableDeductions;
+    const taxablePay = (basicAmount + allowances + irrgularallowances) + taxabletelnonCashBenefits + taxablemealsnonCashBenefits + excessPension - allowableDeductions;
 
     const personalRelief = 2400;
     const incomeTax = calculateIncomeTax(taxablePay);
@@ -79,18 +80,19 @@ function calculatePAYE() {
     const PAYE = Math.max(incomeTax - personalRelief - insuranceRelief - housingLevyRelief, 0);
 
     const nita = 50;
-    const nssfEmployer = Math.min((basicAmount + allowances) * 0.06, 2160);
+    const nssfEmployer = Math.min((basicAmount + allowances + irrgularallowances) * 0.06, 2160);
     const ahlEmployer = (basicAmount + allowances) * 0.015;
 
     const EduInsurance = eduInsurance;
     const LifeInsurance = lifeInsurance;
     // Net Pay Calculation
-    const netPay = basicAmount + allowances - (PAYE + nssf + shif + housingLevy + pension + totalInsurance);
+    const netPay = basicAmount + allowances + irrgularallowances - (PAYE + nssf + shif + housingLevy + pension + totalInsurance);
     const totalDeductions = PAYE + nssf + shif + housingLevy + pension + totalInsurance;
 
     // Update results on the UI
     document.getElementById('displayBasicAmount').textContent = basicAmount.toLocaleString();
     document.getElementById('displayAllowances').textContent = allowances.toLocaleString();
+    document.getElementById('displayirrAllowances').textContent = irrgularallowances.toLocaleString();
     document.getElementById('displaytelnonCashBenefits').textContent = telnonCashBenefits.toLocaleString();
     document.getElementById('displaymealsnonCashBenefits').textContent = mealsnonCashBenefits.toLocaleString();
     document.getElementById('grossPay').textContent = grossPay.toLocaleString();

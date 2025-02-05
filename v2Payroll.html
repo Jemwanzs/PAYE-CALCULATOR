@@ -83,25 +83,29 @@
                     margin-bottom: 5px;
                 }
             </style>
-            <h2 class="center-align">Pay-Roll Calc'</h2>
+            <h2 class="center-align" style="color: #880088;">Pay-Roll Calc'</h2>
 
-            <label for="basicAmount" class="center-align">Basic Pay</label>
+            <label for="basicAmount" class="center-align" style="color: #880088; font-weight: bold;">Basic Pay</label>
             <input class="center-align" type="text" id="basicAmount" placeholder="Enter Basic Amount"
                 oninput="formatInput(this)" />
 
-            <label for="allowances" class="center-align">Cash Allowances</label>
-            <input class="center-align" type="text" id="allowances" placeholder="Enter Cash Benefits"
+            <label for="allowances" class="center-align" style="color: #880088; font-weight: bold;">Allowances{Regular}</label>
+            <input class="center-align" type="text" id="allowances" placeholder="Enter Regular Allowances"
                 oninput="formatInput(this)" />
 
-            <label for="telnonCashBenefits" class="center-align">Bobile/Tel/Internet Benefits</label>
+            <label for="allowances" class="center-align" style="color: #880088; font-weight: bold;">Irregular Allowances</label>
+            <input class="center-align" type="text" id="irregularallowances" placeholder="Enter Irregular Allowances"
+                oninput="formatInput(this)" />
+
+            <label for="telnonCashBenefits" class="center-align" style="color: #880088; font-weight: bold;">Bobile/Tel/Internet Benefits</label>
             <input class="center-align" type="text" id="telnonCashBenefits" placeholder="Enter Mobile Benefits"
                 oninput="formatInput(this)" />
 
-            <label for="mealsnonCashBenefits" class="center-align">Meals Benefit</label>
+            <label for="mealsnonCashBenefits" class="center-align" style="color: #880088; font-weight: bold;">Meals Benefit</label>
             <input class="center-align" type="text" id="mealsnonCashBenefits" placeholder="Enter Meals Benefit"
                 oninput="formatInput(this)" />
 
-            <label class="center-align">
+            <label class="center-align" style="color: #880088; font-weight: bold;">
                 <input class="center-align" type="checkbox" id="pensionCheckbox" onclick="togglePensionFields()" />
                 <p>Pension Contributions (%)</p>
             </label>
@@ -114,7 +118,7 @@
                 <input class="center-align" type="number" id="employerPension" placeholder="Employer ( eg. 10 = 10%)" />
             </div>
 
-            <label class="center-align">
+            <label class="center-align" style="color: #880088; font-weight: bold;">
                 <input class="center-align" type="checkbox" id="insuranceCheckbox" onclick="toggleInsuranceFields()" />
                 <p>Insurance</p>
             </label>
@@ -135,7 +139,8 @@
         <div class="calculator-results">
             <!--<h2>Results</h2>-->
             <p>Basic Pay: <span id="displayBasicAmount">0</span></p>
-            <p>Allowances: <span id="displayAllowances">0</span></p>
+            <p>Allowances{Recurring}: <span id="displayAllowances">0</span></p>
+            <p>One-off Allowances: <span id="displayirrAllowances">0</span></p>
             <p>Telephone Benefit(s): <span id="displaytelnonCashBenefits">0</span></p>
             <p>Meals Benefit: <span id="displaymealsnonCashBenefits">0</span></p>
             <hr class="separator">

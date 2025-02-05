@@ -29,14 +29,14 @@
         /* Header Styling */
         h1 {
             font-size: 1.5rem;
-            color: #7c1262;
+            color: #880088;
             margin-bottom: 0.5rem;
             text-shadow: 2.5px 2.5px 2.5px #f08d1c;
         }
 
         h2 {
             font-size: 1.5rem;
-            color: #e67bcb;
+            color: #880088;
             margin-bottom: 1.5rem;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
@@ -62,7 +62,7 @@
         }
 
         #versionPicker:focus {
-            border-color: #e67bcb;
+            border-color: #880088;
         }
 
         /* Optional: Style the options inside the select */
@@ -73,7 +73,7 @@
 
         /* Button Styling */
         #proceedBtn {
-            background-color: #e67bcb;
+            background-color: #880088;
             color: #fff;
             width: 125px;
             max-width: 300px;
@@ -92,8 +92,17 @@
         }
 
         #proceedBtn:active {
-            background-color: #e67bcb;
+            background-color: #880088;
             transform: translateY(0);
+        }
+        .card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 280px;
+            height: 400px;
         }
 
         /* Mobile Responsiveness */
@@ -113,7 +122,9 @@
             }
         }
     </style>
-    <h1>PAYE</h1>
+<div class="card">
+    <img src="https://elevatehr.co/images/elavate/Elevate%20HR.png" alt="ElevateHR Image" width="100">
+    <h1>PaYRoll caLc</h1>
     <h2>Select a Version</h2>
     <select id="versionPicker">
         <option value="" selected disabled>Pick Here...</option>
@@ -139,6 +150,7 @@
         });
     </script>
     <script src="protectCode.js"></script>
+</div>
 </body>
 
 </html>
