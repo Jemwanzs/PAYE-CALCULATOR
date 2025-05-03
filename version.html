@@ -122,7 +122,47 @@
             }
         }
     </style>
+
+
 <div class="card">
+    <img src="https://elevatehr.co/images/elavate/Elevate%20HR.png" alt="ElevateHR Image" width="100">
+    <h1>PaYRoll caLc</h1>
+    <h2>Select a Version</h2>
+    <select id="versionPicker">
+        <option value="" selected disabled>Pick Here...</option>
+        <option value="v1_PAYE">v1-PAYE {before Dec 27,24}</option>
+        <option value="v2_PAYE">v2-PAYE {Dec 27,24 >>}</option>
+    </select>
+
+    <button id="proceedBtn">Proceed</button>
+
+    <script>
+        document.getElementById("proceedBtn").addEventListener("click", function () {
+            const selectedOption = document.getElementById("versionPicker").value;
+
+            if (!selectedOption) {
+                alert("Please select a valid option.");
+                return;
+            }
+
+            const passcode = prompt("Enter passcode to access the calculator: \n\nCall James: +254798-993-404\nCall Shalom: +254758-462-513\n\n#ElevateHR\nFor Payroll Solution & Best Calculators!");
+
+            if (passcode === "@elevatehrJMS") {
+                // Redirect based on selected version
+                if (selectedOption === "v1_PAYE") {
+                    window.location.replace("payroll.html");
+                } else if (selectedOption === "v2_PAYE") {
+                    window.location.replace("v2payroll.html");
+                }
+            } else {
+                alert("Incorrect passcode. Access denied.\n\nCall James: +254798-993-404\nCall Shalom: +254758-462-513\n\n#ElevateHR\nFor Payroll Solution & Best Calculators!");
+
+            }
+        });
+    </script>
+</div>
+
+<!--<div class="card">
     <img src="https://elevatehr.co/images/elavate/Elevate%20HR.png" alt="ElevateHR Image" width="100">
     <h1>PaYRoll caLc</h1>
     <h2>Select a Version</h2>
@@ -150,7 +190,7 @@
         });
     </script>
     <script src="protectCode.js"></script>
-</div>
+</div>-->
 </body>
 
 </html>
