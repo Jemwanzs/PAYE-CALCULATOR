@@ -53,7 +53,8 @@ function calculatePAYE() {
 
     const grossPay = basicAmount + allowances + irrgularallowances + telnonCashBenefits + mealsnonCashBenefits;
     //const nssf = Math.min((basicAmount + allowances + irrgularallowances) * 0.06, 2160); // Updates From Feb 2025 Payroll
-    const nssf = Math.min((basicAmount + allowances + irrgularallowances) * 0.06, 4320);
+    //const nssf = Math.min((basicAmount + allowances + irrgularallowances) * 0.06, 4320); // Updates From Feb 2026 Payroll
+    const nssf = Math.min((basicAmount + allowances + irrgularallowances) * 0.06, 6480);
     const shif = (basicAmount + allowances) * 0.0275;
     const housingLevy = (basicAmount + allowances) * 0.015;
 
@@ -84,7 +85,8 @@ function calculatePAYE() {
 
     const nita = 50;
     //const nssfEmployer = Math.min((basicAmount + allowances +irrgularallowances) * 0.06, 2160); // Updates as from Feb 2025
-    const nssfEmployer = Math.min((basicAmount + allowances +irrgularallowances) * 0.06, 4320);
+    //const nssfEmployer = Math.min((basicAmount + allowances +irrgularallowances) * 0.06, 4320); // Updates as from Feb 2026
+    const nssfEmployer = Math.min((basicAmount + allowances +irrgularallowances) * 0.06, 6480);
     const ahlEmployer = (basicAmount + allowances) * 0.015;
 
     const EduInsurance = eduInsurance;
